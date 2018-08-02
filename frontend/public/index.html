@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TEST</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body ng-controller="app.controller as vm">
+    <div ng-show="!vm.connected">
+      <form class="auth" ng-submit="vm.auth(vm.username)">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="vm.username">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Go</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div ng-show="vm.connected">
+      <div class="menu">
+        <div class="rooms">
+          <div ng-repeat="room in vm.rooms" ng-click="vm.switchroom(room)" ng-class="vm.currentroom(room)">
+            {{room}}
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div ng-show="!vm.room">
+          <center>Choose one room!</center>
+        </div>
+        <div ng-show="vm.room">
+          <form class="send-message" ng-submit="vm.sendmessage()">
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="vm.message">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+            </div>
+          </form>
+          <div class="messages">
+            <div ng-repeat="message in vm.messages track by $index">
+              {{message}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://127.0.0.1:8080/socket.io/socket.io.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

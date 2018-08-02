@@ -1,0 +1,10 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.6.8",
+    "bootstrap": "^4.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+.auth {
+  margin: 10px;
+}
+
+.menu {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: #F5F5F5;
+}
+
+.rooms > div {
+  cursor: pointer;
+  padding: 5px;
+}
+.rooms > div.active {
+  background-color: #007BFF;
+  color: #FFF;
+}
+
+.content {
+  margin: 0px 0px 0px 250px;
+}
+
+.messages {
+  margin: 10px;
+}
+
+.send-message {
+  margin: 10px;
+}
